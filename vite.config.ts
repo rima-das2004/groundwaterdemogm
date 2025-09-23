@@ -1,27 +1,27 @@
+// vite.config.ts
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  // 👇 Very important for Vercel (ensures correct asset paths)
-  base: '/',
+  // 👇 Use relative paths for production
+  base: './',
 
   plugins: [react()],
 
   build: {
-    target: 'esnext',      // Modern output
-    outDir: 'dist',        // Default folder Vercel expects
-    chunkSizeWarningLimit: 1000 // Optional: raises warning limit to avoid big-chunk warnings
+    target: 'esnext',
+    outDir: 'dist',
+    chunkSizeWarningLimit: 1000
   },
 
   server: {
-    port: 3000,            // Local dev port
-    open: true             // Opens browser automatically on `npm run dev`
+    port: 3000,
+    open: true
   },
 
   resolve: {
     alias: {
-      '@': '/src'          // Example alias if you use @ imports
+      '@': '/src'
     }
   }
 })
